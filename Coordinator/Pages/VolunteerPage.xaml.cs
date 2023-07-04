@@ -31,7 +31,7 @@ namespace Coordinator.Pages
         }
         public void Refresh()
         {
-            VolunteerList.ItemsSource = App.db.User.Where(x => x.Id == 2).ToList();
+            VolunteerList.ItemsSource = App.db.User.Where(x => x.RoleId == 2).ToList();
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -44,7 +44,7 @@ namespace Coordinator.Pages
             var SelUser = (sender as Button).DataContext as User;
             if (SelUser.StatusVolunteerId == 1) 
             {
-                if(MessageBox.Show("Поставить подопечных?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if(MessageBox.Show("Поставить подопечного?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     SelUser.StatusVolunteerId = 3;
                     VolunteerPatient NewVP = new VolunteerPatient()
@@ -60,6 +60,7 @@ namespace Coordinator.Pages
             }
             else
             {
+                
                 Refresh();
             }
         }
