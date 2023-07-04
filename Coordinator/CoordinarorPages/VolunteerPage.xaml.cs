@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Coordinator.Pages
+namespace Coordinator.CoordinatorPages
 {
     /// <summary>
     /// Логика взаимодействия для GenPage.xaml

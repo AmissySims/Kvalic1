@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ResponseTeam.Pages
+namespace ResponseTeam.TeamPages
 {
     /// <summary>
     /// Логика взаимодействия для AuthPage.xaml

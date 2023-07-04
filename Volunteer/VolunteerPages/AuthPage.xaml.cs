@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Volunteer.Pages
+namespace Volunteer.VolunteerPages
 {
     /// <summary>
     /// Логика взаимодействия для AuthPage.xaml

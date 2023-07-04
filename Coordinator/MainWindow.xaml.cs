@@ -1,4 +1,4 @@
-﻿using Coordinator.Pages;
+﻿using Coordinator.CoordinatorPages;
 using Base.Models;
 using System;
 using System.Collections.Generic;

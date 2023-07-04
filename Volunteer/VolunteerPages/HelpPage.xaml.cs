@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace Volunteer.Pages
+namespace Volunteer.VolunteerPages
 {
     /// <summary>
     /// Логика взаимодействия для HelpPage.xaml
