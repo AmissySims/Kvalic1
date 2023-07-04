@@ -1,0 +1,24 @@
+﻿<Page x:Class="Coordinator.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Coordinator.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock x:Name="NameUseTb" Margin="5"/>
+            <Button x:Name="VolunteersBtn" Content="Cписок волонтеров" Margin="5" Click="VolunteersBtn_Click"/>
+            <Button x:Name="PatientsBtn" Content="Cписок пациентов" Margin="5" Click="PatientsBtn_Click"/>
+
+        </StackPanel>
+        <Frame Grid.Row="1" x:Name="MainCoordinatorFrame" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>

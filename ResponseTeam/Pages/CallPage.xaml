@@ -1,0 +1,46 @@
+﻿<Page x:Class="ResponseTeam.Pages.CallPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ResponseTeam.Pages"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CallPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock x:Name="NameUseTb" Margin="5"/>
+            
+            
+        </StackPanel>
+        <ListView Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Patientlist" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Aquamarine" BorderThickness="2">
+                        <Grid>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Patient.FullName}" Margin="5"/>
+                                <TextBlock Text="{Binding StatusPatient.Title}" Margin="5"/>
+                                <Button x:Name="HelpBt" Content="Оказать помощь" Margin="5" Click="HelpBt_Click" />
+                               
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

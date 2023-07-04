@@ -1,0 +1,12 @@
+﻿<Application x:Class="Volunteer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Volunteer"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="Aquamarine"/>
+            <Setter Property="BorderThickness" Value="2"/> 
+        </Style>
+    </Application.Resources>
+</Application>

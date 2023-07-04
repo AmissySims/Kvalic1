@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3bb072798b27471b8e2374435c34f145" Name="Diagram1">
+        <EntityTypeShape EntityType="CvalicModel.Patient" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="CvalicModel.Role" Width="1.5" PointX="0.75" PointY="1.625" />
+        <EntityTypeShape EntityType="CvalicModel.StatusPatient" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="CvalicModel.StatusVolunteer" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="CvalicModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CvalicModel.User" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CvalicModel.VolunteerPatient" Width="1.5" PointX="5.25" PointY="1.25" />
+        <AssociationConnector Association="CvalicModel.FK_VolunteerPatient_Patient" />
+        <AssociationConnector Association="CvalicModel.FK_User_Role" />
+        <AssociationConnector Association="CvalicModel.FK_VolunteerPatient_StatusPatient" />
+        <AssociationConnector Association="CvalicModel.FK_User_StatusVolunteer" />
+        <AssociationConnector Association="CvalicModel.FK_VolunteerPatient_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
