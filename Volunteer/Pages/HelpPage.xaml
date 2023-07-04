@@ -21,7 +21,8 @@
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="StatusReadyBtn" Content="поменять статус на готов" Margin="5" Click="StatusReadyBtn_Click"/>
                 <Button x:Name="StatusRelaxBtn" Content="поменять статус на выходной" Margin="5" Click="StatusRelaxBtn_Click"/>
-                <Button x:Name="StatusHelpBtn" Content="поменять статус на оказывает помощь" Margin="5" Click="StatusHelpBtn_Click"/>
+              
+                <TextBlock x:Name="Baseapp" />
             </StackPanel>
         </StackPanel>
         <ListView Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Patientlist" >

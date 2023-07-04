@@ -29,21 +29,24 @@ namespace Volunteer.Pages
             var Timer = new DispatcherTimer();
           
             Timer.Tick += new EventHandler(Timer_Tick);
-            Timer.Interval = new TimeSpan(0, 1, 0);
+            Timer.Interval = new TimeSpan(0, 0, 30);
             Timer.Start();
             UpdateDatabase();
+            
             Refresh();
             
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            
+            Baseapp.Text = $"сохранено в {DateTime.Now.ToLongTimeString()}";
+
             UpdateDatabase();
             CommandManager.InvalidateRequerySuggested();
         }
 
         private void UpdateDatabase()
         {
+            
             App.db.SaveChanges();
         }
         public void Refresh()
@@ -51,7 +54,11 @@ namespace Volunteer.Pages
             var SelUse = App.db.User.FirstOrDefault(x => x.Id == AccountUse.AuthUser.Id);
             NameUseTb.Text = SelUse.FullName;
             StatTb.Text = SelUse.StatusVolunteer.Title.ToString();
+            
             Patientlist.ItemsSource = App.db.VolunteerPatient.Where(x => x.UserId == AccountUse.AuthUser.Id).ToList();
+            if(SelUse.StatusVolunteerId == 3)
+                Patientlist.Visibility = Visibility.Visible;
+            else Patientlist.Visibility = Visibility.Collapsed;
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -65,7 +72,7 @@ namespace Volunteer.Pages
             MessageBox.Show("изменено");
             App.db.SaveChanges();
             Refresh();
-            Patientlist.Visibility = Visibility.Collapsed;
+           
         }
 
         private void StatusReadyBtn_Click(object sender, RoutedEventArgs e)
@@ -75,18 +82,10 @@ namespace Volunteer.Pages
             MessageBox.Show("изменено");
             App.db.SaveChanges();
             Refresh();
-            Patientlist.Visibility = Visibility.Collapsed;
+           
         }
 
-        private void StatusHelpBtn_Click(object sender, RoutedEventArgs e)
-        {
-            var use = App.db.User.Where(x => x.Id == AccountUse.AuthUser.Id).FirstOrDefault();
-            use.StatusVolunteerId = 3;
-            MessageBox.Show("изменено");
-            App.db.SaveChanges();
-            Refresh();
-            Patientlist.Visibility = Visibility.Visible;
-        }
+        
 
         private void HelpBt_Click(object sender, RoutedEventArgs e)
         {
