@@ -39,7 +39,7 @@ namespace Coordinator.CoordinatorPages
                     MessageBox.Show("такого пользователя нет ");
                     return;
                 }
-                if (string.IsNullOrEmpty(login))
+                else if (string.IsNullOrEmpty(login))
                 {
                     MessageBox.Show("введите логин");
                     return;

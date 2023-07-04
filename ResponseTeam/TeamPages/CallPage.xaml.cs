@@ -34,12 +34,19 @@ namespace ResponseTeam.TeamPages
         }
         private void HelpBt_Click(object sender, RoutedEventArgs e)
         {
-            var PatientHelp = (sender as Button).DataContext as VolunteerPatient;
-            PatientHelp.StatusPatientId = 1;
+            try
+            {
+                var PatientHelp = (sender as Button).DataContext as VolunteerPatient;
+                PatientHelp.StatusPatientId = 1;
 
-            App.db.SaveChanges();
-            MessageBox.Show("изменено");
-            Refresh();
+                App.db.SaveChanges();
+                MessageBox.Show("изменено");
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

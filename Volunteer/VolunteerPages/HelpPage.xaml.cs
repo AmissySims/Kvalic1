@@ -38,7 +38,7 @@ namespace Volunteer.VolunteerPages
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Baseapp.Text = $"сохранено в {DateTime.Now.ToLongTimeString()}";
+            Baseapp.Text = $" сохранено в {DateTime.Now.ToLongTimeString()}";
 
             UpdateDatabase();
             CommandManager.InvalidateRequerySuggested();
@@ -67,21 +67,36 @@ namespace Volunteer.VolunteerPages
 
         private void StatusRelaxBtn_Click(object sender, RoutedEventArgs e)
         {
-            var use = App.db.User.Where(x => x.Id == AccountUse.AuthUser.Id).FirstOrDefault();
-            use.StatusVolunteerId = 2;
-            MessageBox.Show("изменено");
-            App.db.SaveChanges();
-            Refresh();
+            try
+            {
+                var use = App.db.User.Where(x => x.Id == AccountUse.AuthUser.Id).FirstOrDefault();
+                use.StatusVolunteerId = 2;
+                MessageBox.Show("изменено");
+                App.db.SaveChanges();
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
            
         }
 
         private void StatusReadyBtn_Click(object sender, RoutedEventArgs e)
         {
-            var use = App.db.User.Where(x => x.Id == AccountUse.AuthUser.Id).FirstOrDefault();
-            use.StatusVolunteerId = 1;
-            MessageBox.Show("изменено");
-            App.db.SaveChanges();
-            Refresh();
+            try
+            {
+                var use = App.db.User.Where(x => x.Id == AccountUse.AuthUser.Id).FirstOrDefault();
+                use.StatusVolunteerId = 1;
+                MessageBox.Show("изменено");
+                App.db.SaveChanges();
+                Refresh();
+            }
+            catch ( Exception ex )
+            {
+                MessageBox.Show(ex.Message);
+            }
+      
            
         }
 
@@ -89,28 +104,52 @@ namespace Volunteer.VolunteerPages
 
         private void HelpBt_Click(object sender, RoutedEventArgs e)
         {
-            var patientHelp = (sender as Button).DataContext as VolunteerPatient;
-            patientHelp.StatusPatientId = 4;
-            App.db.SaveChanges();
-            Refresh();
+            try
+            {
+                var patientHelp = (sender as Button).DataContext as VolunteerPatient;
+                patientHelp.StatusPatientId = 4;
+                App.db.SaveChanges();
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void NeedHelpBt_Click(object sender, RoutedEventArgs e)
         {
-            var patientHelp = (sender as Button).DataContext as VolunteerPatient;
-            patientHelp.StatusPatientId = 3;
-            App.db.SaveChanges();
-            Refresh();
+            try
+            {
+                var patientHelp = (sender as Button).DataContext as VolunteerPatient;
+                patientHelp.StatusPatientId = 3;
+                App.db.SaveChanges();
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void HelpDoneBt_Click(object sender, RoutedEventArgs e)
         {
-            var patientHelp = (sender as Button).DataContext as VolunteerPatient;
-            patientHelp.StatusPatientId = 1;
-            var SelUse = App.db.User.FirstOrDefault(x => x.Id == AccountUse.AuthUser.Id);
+            try
+            {
+                var patientHelp = (sender as Button).DataContext as VolunteerPatient;
+                patientHelp.StatusPatientId = 1;
+                var SelUse = App.db.User.FirstOrDefault(x => x.Id == AccountUse.AuthUser.Id);
+
+                App.db.SaveChanges();
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
            
-            App.db.SaveChanges();
-            Refresh();
            
         }
     }

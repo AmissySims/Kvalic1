@@ -40,28 +40,34 @@ namespace Coordinator.CoordinatorPages
 
         private void GenerationPatientsBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            var SelUser = (sender as Button).DataContext as User;
-            if (SelUser.StatusVolunteerId == 1) 
+            try
             {
-                if(MessageBox.Show("Поставить подопечного?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                var SelUser = (sender as Button).DataContext as User;
+                if (SelUser.StatusVolunteerId == 1)
                 {
-                    SelUser.StatusVolunteerId = 3;
-                    VolunteerPatient NewVP = new VolunteerPatient()
+                    if (MessageBox.Show("Поставить подопечного?", "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                     {
-                        PatientId = rnd.Next(1, 23),
-                        UserId = SelUser.Id,
-                        StatusPatientId = 2
-                    };
-                    App.db.VolunteerPatient.Add(NewVP);
-                    App.db.SaveChanges();
+                        SelUser.StatusVolunteerId = 3;
+                        VolunteerPatient NewVP = new VolunteerPatient()
+                        {
+                            PatientId = rnd.Next(1, 23),
+                            UserId = SelUser.Id,
+                            StatusPatientId = 2
+                        };
+                        App.db.VolunteerPatient.Add(NewVP);
+                        App.db.SaveChanges();
+                        Refresh();
+                    }
+                }
+                else
+                {
+
                     Refresh();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                
-                Refresh();
+                MessageBox.Show(ex.Message);
             }
         }
     }
